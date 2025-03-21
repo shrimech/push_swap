@@ -6,14 +6,14 @@
 /*   By: shrimech <shrimech@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 17:04:50 by shrimech          #+#    #+#             */
-/*   Updated: 2025/03/15 17:04:51 by shrimech         ###   ########.fr       */
+/*   Updated: 2025/03/15 17:43:29 by shrimech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "push_swap.h"
 
-static int	get_min(t_list **stack, int val)
+static int	get_min(t_list **stack)
 {
 	t_list	*head;
 	int		min;
@@ -23,7 +23,7 @@ static int	get_min(t_list **stack, int val)
 	while (head->next)
 	{
 		head = head->next;
-		if ((head->index < min) && head->index != val)
+		if ((head->index < min) && head->index != -1)
 			min = head->index;
 	}
 	return (min);
@@ -36,8 +36,8 @@ static void	sort_3(t_list **stack_a)
 	int		next_min;
 
 	head = *stack_a;
-	min = get_min(stack_a, -1);
-	next_min = get_min(stack_a, min);
+	min = get_min(stack_a);
+	next_min = get_min(stack_a);
 	if (is_sorted(stack_a))
 		return ;
 	if (head->index == min && head->next->index != next_min)
@@ -71,7 +71,7 @@ static void	sort_4(t_list **stack_a, t_list **stack_b)
 
 	if (is_sorted(stack_a))
 		return ;
-	distance = get_distance(stack_a, get_min(stack_a, -1));
+	distance = get_distance(stack_a, get_min(stack_a));
 	if (distance == 1)
 		ra(stack_a);
 	else if (distance == 2)
@@ -92,7 +92,7 @@ void	sort_5(t_list **stack_a, t_list **stack_b)
 {
 	int	distance;
 
-	distance = get_distance(stack_a, get_min(stack_a, -1));
+	distance = get_distance(stack_a, get_min(stack_a));
 	if (distance == 1)
 		ra(stack_a);
 	else if (distance == 2)
