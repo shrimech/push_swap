@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shrimech <shrimech@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shrimech <shrimech@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 17:05:21 by shrimech          #+#    #+#             */
-/*   Updated: 2025/03/15 17:05:22 by shrimech         ###   ########.fr       */
+/*   Updated: 2025/04/11 03:30:51 by shrimech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_free(char **str)
 		i++;
 	while (i >= 0)
 		free(str[i--]);
+	free(str);
 }
 
 int	is_sorted(t_list **stack)

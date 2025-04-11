@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shrimech <shrimech@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shrimech <shrimech@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 17:05:00 by shrimech          #+#    #+#             */
-/*   Updated: 2025/03/15 17:05:01 by shrimech         ###   ########.fr       */
+/*   Updated: 2025/04/11 04:09:27 by shrimech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -34,7 +33,7 @@ static int	ft_isnum(char *num)
 		i++;
 	while (num[i])
 	{
-		if (!ft_isdigit(num[i]))
+		if (!ft_isdigit(num[i]) && num[i] != ' ')
 			return (0);
 		i++;
 	}
@@ -45,7 +44,7 @@ void	ft_check_args(int argc, char **argv)
 {
 	int		i;
 	long	tmp;
-	char	**args;	
+	char	**args;
 
 	i = 0;
 	if (argc == 2)
@@ -58,12 +57,13 @@ void	ft_check_args(int argc, char **argv)
 	while (args[i])
 	{
 		tmp = ft_atoi(args[i]);
-		if (!ft_isnum(args[i]))
+		if (!ft_isnum(args[i]) || ft_contains(tmp, args, i) || tmp < -2147483648
+			|| tmp > 2147483647)
+		{
+			if (argc == 2)
+				ft_free(args);
 			ft_error("Error");
-		if (ft_contains(tmp, args, i))
-			ft_error("Error");
-		if (tmp < -2147483648 || tmp > 2147483647)
-			ft_error("Error");
+		}
 		i++;
 	}
 	if (argc == 2)

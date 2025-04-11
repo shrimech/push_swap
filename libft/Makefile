@@ -6,12 +6,12 @@
 #    By: shrimech <shrimech@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/01 16:57:08 by shrimech          #+#    #+#              #
-#    Updated: 2025/03/15 17:03:28 by shrimech         ###   ########.fr        #
+#    Updated: 2025/04/11 00:54:03 by shrimech         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -fPIE -Wall -Wextra -Werror
 FUNCTIONS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
        ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c \
        ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c \

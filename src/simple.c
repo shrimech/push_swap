@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shrimech <shrimech@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shrimech <shrimech@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 17:04:50 by shrimech          #+#    #+#             */
-/*   Updated: 2025/03/15 17:43:29 by shrimech         ###   ########.fr       */
+/*   Updated: 2025/04/11 01:02:50 by shrimech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	sort_3(t_list **stack_a)
 
 	head = *stack_a;
 	min = get_min(stack_a);
-	next_min = get_min(stack_a);
+	next_min = get_min(stack_a) + 1;
 	if (is_sorted(stack_a))
 		return ;
 	if (head->index == min && head->next->index != next_min)
