@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shrimech <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: shrimech <shrimech@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 22:39:57 by shrimech          #+#    #+#             */
-/*   Updated: 2024/11/03 23:03:43 by shrimech         ###   ########.fr       */
+/*   Updated: 2025/04/12 02:25:48 by shrimech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define LIBFT_H
 
 # include <stddef.h>
-# include <unistd.h>
-# include <stdlib.h>
 # include <stdint.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 int		ft_tolower(int c);
 int		ft_isalpha(int c);
@@ -41,11 +41,11 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_calloc(size_t count, size_t size);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	**ft_split(char const *s, char c);
-void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
 void	ft_putstr_fd(char *s, int fd);

@@ -6,10 +6,9 @@
 /*   By: shrimech <shrimech@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 17:04:50 by shrimech          #+#    #+#             */
-/*   Updated: 2025/04/11 01:02:50 by shrimech         ###   ########.fr       */
+/*   Updated: 2025/04/12 02:19:11 by shrimech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -31,38 +30,29 @@ static int	get_min(t_list **stack)
 
 static void	sort_3(t_list **stack_a)
 {
-	t_list	*head;
-	int		min;
-	int		next_min;
+	int	first;
+	int	second;
+	int	third;
 
-	head = *stack_a;
-	min = get_min(stack_a);
-	next_min = get_min(stack_a) + 1;
-	if (is_sorted(stack_a))
-		return ;
-	if (head->index == min && head->next->index != next_min)
+	first = (*stack_a)->value;
+	second = (*stack_a)->next->value;
+	third = (*stack_a)->next->next->value;
+	if (first > second && second > third)
 	{
-		ra(stack_a);
 		sa(stack_a);
 		rra(stack_a);
 	}
-	else if (head->index == next_min)
+	else if (first > third && third > second)
+		ra(stack_a);
+	else if (second > first && first > third)
+		rra(stack_a);
+	else if (second > third && third > first)
 	{
-		if (head->next->index == min)
-			sa(stack_a);
-		else
-			rra(stack_a);
+		sa(stack_a);
+		ra(stack_a);
 	}
-	else
-	{
-		if (head->next->index == min)
-			ra(stack_a);
-		else
-		{
-			sa(stack_a);
-			rra(stack_a);
-		}
-	}
+	else if (third > first && first > second)
+		sa(stack_a);
 }
 
 static void	sort_4(t_list **stack_a, t_list **stack_b)
@@ -131,4 +121,3 @@ void	simple_sort(t_list **stack_a, t_list **stack_b)
 	else if (size == 5)
 		sort_5(stack_a, stack_b);
 }
-

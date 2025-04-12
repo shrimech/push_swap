@@ -2,12 +2,12 @@
 
 NAME = push_swap
 
-SRCS =  $(wildcard src/*.c utils/*.c)
+SRCS =  $(wildcard instractions/*.c src/*.c utils/*.c)
 
 OBJS = ${SRCS:.c=.o}
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iincludes -g
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -Iincludes
 
 RM = rm -rf
 

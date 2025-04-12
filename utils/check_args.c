@@ -6,7 +6,7 @@
 /*   By: shrimech <shrimech@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 17:05:00 by shrimech          #+#    #+#             */
-/*   Updated: 2025/04/11 04:09:27 by shrimech         ###   ########.fr       */
+/*   Updated: 2025/04/12 02:13:35 by shrimech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,9 @@ static int	ft_isnum(char *num)
 
 void	ft_check_args(int argc, char **argv)
 {
-	int		i;
-	long	tmp;
 	char	**args;
 
+	long (tmp), (i);
 	i = 0;
 	if (argc == 2)
 		args = ft_split(argv[1], ' ');

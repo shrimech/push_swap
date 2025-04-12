@@ -1,51 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   index.c                                            :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shrimech <shrimech@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/15 17:05:09 by shrimech          #+#    #+#             */
-/*   Updated: 2025/04/12 01:37:41 by shrimech         ###   ########.fr       */
+/*   Created: 2025/04/12 01:08:46 by shrimech          #+#    #+#             */
+/*   Updated: 2025/04/12 02:02:47 by shrimech         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_list	*get_next_min(t_list **stack)
+int	rotate(t_list **stack)
 {
 	t_list	*head;
-	t_list	*min;
-	int		has_min;
+	t_list	*tail;
 
-	min = NULL;
-	has_min = 0;
+	if (ft_lstsize(*stack) < 2)
+		return (-1);
 	head = *stack;
-	if (head)
-	{
-		while (head)
-		{
-			if ((head->index == -1) && (!has_min || head->value < min->value))
-			{
-				min = head;
-				has_min = 1;
-			}
-			head = head->next;
-		}
-	}
-	return (min);
+	tail = ft_lstlast(head);
+	*stack = head->next;
+	head->next = NULL;
+	tail->next = head;
+	return (0);
 }
 
-void	index_stack(t_list **stack)
+int	ra(t_list **stack_a)
 {
-	t_list	*head;
-	int		index;
-
-	index = 0;
-	head = get_next_min(stack);
-	while (head)
-	{
-		head->index = index++;
-		head = get_next_min(stack);
-	}
+	if (rotate(stack_a) == -1)
+		return (-1);
+	ft_putendl_fd("ra", 1);
+	return (0);
 }
